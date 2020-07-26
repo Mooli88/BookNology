@@ -5,15 +5,13 @@ import { useStore } from 'react-hookstore';
 import { baseURL } from '../..';
 import { IBookShelves, IVolume } from '../../types/library';
 import { IUser } from '../../types/user';
+import BookGalary from '../BookGalary/BookGalary';
 import Login from '../Login/Login';
 import Menu from '../Menu/Menu';
 import Shelves from '../Shelves/Shelves';
 import Sidebar from '../Sidebar/Sidebar';
 
-const tempToken =
-	'ya29.a0AfH6SMCKODtZOXcxH60WimgC7xR89ws00J75HUPWu8xIvm6N1I3xLc_b1qOd44TDA7Gn-EeugbrWhzNhnPqEZDrJk4ybtRaxB8n1H8iPf5M0b3oylAxtSYP3UXif0av4ks2wyqdjPhIcC7DAt4MQ_mnTKfarIonz_cAg';
-
-const GET = (token: string): AxiosRequestConfig => ({
+export const GET = (token: string): AxiosRequestConfig => ({
 	method: 'get',
 	baseURL,
 	headers: {
@@ -36,9 +34,6 @@ const MyLibrary = (props: Props) => {
 	}>(`/volumes`, {
 		manual: true,
 	});
-
-	// shelves.length && console.log('MyLibrary -> shelves', shelves);
-	// console.log('volumesData', volumesData);
 
 	const getData = async () => {
 		await getShelves(GET(user.token));
@@ -81,7 +76,10 @@ const MyLibrary = (props: Props) => {
 							defaultItemId='4'
 						/>
 					)}>
-					{volumesData && volumesData.totalItems ? <Shelves /> : <h1>Library is empty</h1>}
+					<>
+						{shelves.length && <BookGalary />}
+						{volumesData && volumesData.totalItems ? <Shelves /> : <h1>Library is empty</h1>}
+					</>
 				</Sidebar>
 			)}
 		</div>
