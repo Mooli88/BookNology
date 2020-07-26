@@ -1,0 +1,34 @@
+.root {
+	flex: 0 0 75vw;
+	max-width: 380px;
+	margin: 0 1.25em;
+	box-shadow: var(--shadow-colour-1) 0px 0.15rem 0.5rem, var(--shadow-colour-2) 0px 0.075rem 0.175rem;
+	transition: all 500ms;
+}
+
+.root img {
+	width: 100%;
+	max-width: 200px;
+}
+
+.root:first-child,
+.root:last-child {
+	margin: 0 auto;
+}
+
+.root:hover {
+	box-shadow: var(--shadow-colour-1) 0px 0.35em 1.175em, var(--shadow-colour-2) 0px 0.175em 0.5em;
+	transform: translateY(-2px) scale(1.05);
+	z-index: 90;
+}
+
+.content {
+	padding: 0 1em;
+}
+
+@media screen and (min-width: 768px) {
+	.root {
+		flex: 0 0 42vw;
+		margin: 0 2em;
+	}
+}

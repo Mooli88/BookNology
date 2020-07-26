@@ -1,6 +1,8 @@
 import React from 'react';
 import { IVolumeInfo } from '../../types/library';
-import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
+import style from './BookCard.module.css';
+
+const { root, content } = style;
 
 interface Props extends IVolumeInfo {
 	id: string;
@@ -10,20 +12,21 @@ const small = '300.jpg';
 const medium = '768.jpg';
 const large = '1280.jpg';
 
-const BookCard = ({ imageLinks, title, description }: Props) => {
+const BookCard = ({ imageLinks, title, subtitle, description, publishedDate, pageCount, averageRating }: Props) => {
 	return (
-		<div>
-			<div>
-				{/* <div
-					role='img'
-					aria-label='Description of the image'
-					title='Tooltip for users not using assistive technologies'
-				/> */}
-				<ResponsiveImage links={imageLinks} />
+		<div className={root}>
+			<img src={imageLinks.thumbnail} alt={`${title} - ${subtitle}`} />
+			<div className={content}>
 				<div>
 					<h3>{title}</h3>
-					<p>{description}</p>
+					<h4>{subtitle}</h4>
 				</div>
+				<p>{description}</p>
+				<ul>
+					<li>{publishedDate}</li>
+					<li>{pageCount}</li>
+					<li>{averageRating}</li>
+				</ul>
 			</div>
 		</div>
 	);

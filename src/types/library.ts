@@ -1,9 +1,6 @@
 export interface imageLinks {
 	smallThumbnail: string;
 	thumbnail: string;
-	previewLink: string;
-	infoLink: string;
-	canonicalVolumeLink: string;
 }
 
 export interface IVolumeInfo {
@@ -12,6 +9,7 @@ export interface IVolumeInfo {
 	publisher: string;
 	publishedDate: string;
 	description: string;
+	subtitle: string;
 	pageCount: number;
 	categories: [];
 	averageRating: number;
@@ -33,7 +31,6 @@ export interface IBookShelves {
 	volumeCount: number;
 }
 
-export interface ILibrary {
-	shelves: IBookShelves[];
-	selecredShelves: string[];
+export interface Book extends IVolumeInfo {
+	id: string;
 }

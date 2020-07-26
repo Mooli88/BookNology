@@ -12,8 +12,6 @@ const Login = (props: Props) => {
 
 	const onSignIn = (googleUser: any) => {
 		const profile = googleUser.getBasicProfile();
-		console.log('Login!');
-		// const token = googleUser.getAuthResponse().access_token
 		setUser({
 			name: profile.getName(),
 			email: profile.getEmail(),
@@ -22,6 +20,7 @@ const Login = (props: Props) => {
 			givinName: profile.getGivenName(),
 			token: googleUser.getAuthResponse().access_token,
 		});
+		console.log('onSignIn -> googleUser.getAuthResponse()', googleUser.getAuthResponse());
 	};
 
 	return (
@@ -32,8 +31,9 @@ const Login = (props: Props) => {
 				onSuccess={onSignIn}
 				// onFailure={onSignIn}
 				scope='profile email https://www.googleapis.com/auth/books'
-				// cookiePolicy={'single_host_origin'}
-				autoLoad={false}
+				cookiePolicy={'single_host_origin'}
+				// autoLoad={true}
+				isSignedIn={true}
 			/>
 		</div>
 	);

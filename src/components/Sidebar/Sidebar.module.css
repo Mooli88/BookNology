@@ -1,0 +1,56 @@
+:root {
+	--sidebar-width: 320px;
+}
+
+.root {
+	/* height: 100vw; */
+	position: relative;
+}
+
+.toolbar {
+	height: 72px;
+	display: flex;
+	box-shadow: 0 0px 0.75rem 0px var(--shadow-colour-1);
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	z-index: 999;
+}
+
+.toolbar_item {
+	padding: 2em;
+}
+
+.menuIcon {
+	background-image: url('../../assets/icons8-menu.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: block;
+	height: 24px;
+	width: 24px;
+}
+
+.menuIcon__close {
+	background-image: url('../../assets/icons8-close.svg');
+}
+.menuIcon__open {
+	background-image: url('../../assets/icons8-menu.svg');
+}
+
+main {
+	display: flex;
+	/* height: calc(100vw - 72px); */
+	position: relative;
+	overflow-x: hidden;
+	padding-top: 72px;
+}
+
+.sidebar {
+	flex: 0 0 var(--sidebar-width);
+}
+.content {
+	flex: 1;
+}

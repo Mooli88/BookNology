@@ -1,0 +1,20 @@
+.root > div {
+	margin: 4em auto;
+}
+
+.books {
+	display: flex;
+
+	overflow-x: auto;
+	padding: 1em 1.25em;
+	scroll-behavior: smooth;
+	width: calc(100vw - 3.75em);
+
+	border-radius: 4px;
+}
+
+@media screen and (min-width: 420px) {
+	.books {
+		width: calc(100vw - var(--sidebar-width) - 3.75em);
+	}
+}
