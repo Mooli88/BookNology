@@ -15,6 +15,7 @@ export interface IVolumeInfo {
 	averageRating: number;
 	ratingsCount: number;
 	imageLinks: imageLinks;
+	previewLink: string;
 }
 export interface IVolume {
 	id: string;

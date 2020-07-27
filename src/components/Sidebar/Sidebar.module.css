@@ -42,15 +42,39 @@
 
 main {
 	display: flex;
-	/* height: calc(100vw - 72px); */
 	position: relative;
 	overflow-x: hidden;
 	padding-top: 72px;
 }
 
 .sidebar {
-	flex: 0 0 var(--sidebar-width);
+	flex: 0 0 100vw;
+	position: relative;
+	overflow: hidden;
+	transition: flex 0.25s ease-out;
+	box-shadow: 0.1rem 1rem 0.6rem var(--shadow-colour-1);
 }
+
+.sidebar.sidebar__close {
+	flex: 0;
+}
+
+.sidebar__close .menu {
+	opacity: 0;
+}
+
+.menu {
+	position: fixed;
+	opacity: 1;
+	transition: opacity 0.25s ease-out;
+}
+
 .content {
 	flex: 1;
+}
+
+@media screen and (min-width: 500px) {
+	.sidebar {
+		flex: 0 0 var(--sidebar-width);
+	}
 }

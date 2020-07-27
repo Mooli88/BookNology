@@ -4,7 +4,18 @@ import { IUser } from '../../types/user';
 import Login from '../Login/Login';
 import style from './Sidebar.module.css';
 
-const { root, toolbar, toolbar_item, menuIcon, menuIcon__close, menuIcon__open, sidebar, content } = style;
+const {
+	root,
+	toolbar,
+	toolbar_item,
+	menuIcon,
+	menuIcon__close,
+	menuIcon__open,
+	sidebar,
+	sidebar__close,
+	content,
+	menu,
+} = style;
 
 interface Props {
 	renderMenu: () => ReactChild;
@@ -24,7 +35,9 @@ const Sidebar = ({ renderMenu, children }: Props) => {
 				</div>
 			</header>
 			<main>
-				<div className={sidebar}>{renderMenu()}</div>
+				<div className={`${sidebar} ${menuState ? '' : sidebar__close}`}>
+					<div className={menu}>{renderMenu()}</div>
+				</div>
 				<div className={content}>{children}</div>
 			</main>
 		</div>

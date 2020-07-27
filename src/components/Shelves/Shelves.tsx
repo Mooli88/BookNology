@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useStore } from 'react-hookstore';
 import { Book, IVolume, IVolumes } from '../../types/library';
+import BookGalary from '../BookGalary/BookGalary';
 import Shelve from './Shelve';
 import style from './Shelves.module.css';
 
@@ -28,31 +29,26 @@ const Shelves = (props: Props) => {
 				books.set(key, [book]);
 			}
 		};
-
 		Object.values(selecredShelves).forEach((books) => {
 			books.forEach(setAuthorBooks);
 		});
 
-		console.log('sortBooksByAuthor -> books', books);
 		setBooksState(books);
 	};
 
 	useEffect(() => {
-		// getData();
-	}, []);
-
-	useEffect(() => {
-		console.log('Shelves -> volumes', selecredShelves);
 		sortBooksByAuthor();
 	}, [selecredShelves]);
 
-	return (
-		<div className={style.root}>
-			{[...booksState].map(([authors, books]) => (
-				<Shelve {...{ authors, books }} key={authors} />
-			))}
-		</div>
-	);
+	const renderBooks = () => {
+		const _books = books.map(([authors, books]) => <Shelve {...{ authors, books }} key={authors} />);
+		_books.splice(2, 0, <BookGalary key={'gallery'} />);
+		return _books;
+	};
+
+	const books = [...booksState];
+
+	return <div className={style.root}>{books.length ? renderBooks() : <h1>🕸️ Library is empty 🕸️</h1>}</div>;
 };
 
 export default Shelves;

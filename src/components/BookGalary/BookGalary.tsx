@@ -51,16 +51,24 @@ const BookGalary = (props: Props) => {
 		const wideCardRandom = [0, 10, 18, 24];
 		const tallCardRandom = [0, 1, 12, 16, 18];
 
-		return books.map(({ id, volumeInfo }, i) => (
-			<div
-				key={id}
-				className={`${styles.card} ${tallCardRandom.includes(i) ? styles.cardTall : ''} ${
-					wideCardRandom.includes(i) ? styles.cardWide : ''
-				}`}
-				style={{ backgroundImage: `url(${volumeInfo.imageLinks.thumbnail})` }}>
-				{volumeInfo.authors}
-			</div>
-		));
+		return books.map(({ id, volumeInfo }, i) => {
+			const tallClass = tallCardRandom.includes(i) ? styles.cardTall : '';
+			const wideClass = wideCardRandom.includes(i) ? styles.cardWide : '';
+			const { authors, imageLinks, previewLink, description } = volumeInfo;
+			return (
+				<a
+					href={previewLink}
+					target='__blank'
+					key={id}
+					className={`${styles.card} ${tallClass} ${wideClass}`}
+					style={{ backgroundImage: `url(${imageLinks.thumbnail})` }}>
+					<div className={styles.info}>
+						<p>{authors}</p>
+						<p>{description}</p>
+					</div>
+				</a>
+			);
+		});
 	};
 
 	if (volumesLoading) return <h2>Loading...</h2>;

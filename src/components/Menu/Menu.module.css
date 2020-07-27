@@ -1,2 +1,16 @@
-ul {
+.root {
+	padding: 2em;
+	text-align: left;
+}
+
+.items li {
+	margin: 0.25rem 0;
+	cursor: pointer;
+	padding: 0.5rem 0;
+	transition: all 0.3s;
+}
+
+.items li:hover {
+	transform: translateX(26px) scale(1.1);
+	border-radius: 12px;
 }

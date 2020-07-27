@@ -51,7 +51,8 @@ const MyLibrary = (props: Props) => {
 
 	useEffect(() => {
 		if (shelvesData && !shelvesError) {
-			setShelves(shelvesData.items);
+			const _shelves = shelvesData.items.filter(({ id }: IBookShelves) => id !== 9);
+			setShelves(_shelves);
 		}
 	}, [shelvesData]);
 
@@ -77,7 +78,7 @@ const MyLibrary = (props: Props) => {
 					)}>
 					<>
 						{/* {shelves.length && <BookGalary />} */}
-						{volumesData && volumesData.totalItems ? <Shelves /> : <h1>Library is empty</h1>}
+						<Shelves />
 					</>
 				</Sidebar>
 			)}
