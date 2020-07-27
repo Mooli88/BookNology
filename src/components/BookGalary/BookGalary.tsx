@@ -45,7 +45,7 @@ const BookGalary = (props: Props) => {
 
 	const renderBooks = () => {
 		const books = volumesData ? volumesData.items : [];
-		const repeat = [...Array(Math.ceil(books.length / 8))];
+		// const repeat = [...Array(Math.ceil(books.length / 8))];
 		// const wideCardRandom = repeat.map(() => getRandomInt(0, books.length - 1));
 		// const tallCardRandom = repeat.map(() => getRandomInt(0, books.length - 1), wideCardRandom);
 		const wideCardRandom = [0, 10, 18, 24];

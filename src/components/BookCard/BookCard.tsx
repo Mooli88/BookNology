@@ -1,5 +1,6 @@
 import React from 'react';
 import { IVolumeInfo } from '../../types/library';
+import BookRating from '../BookRating/BookRating';
 import style from './BookCard.module.css';
 
 const { root, content } = style;
@@ -25,7 +26,10 @@ const BookCard = ({ imageLinks, title, subtitle, description, publishedDate, pag
 				<ul>
 					<li>{publishedDate}</li>
 					<li>{pageCount}</li>
-					<li>{averageRating}</li>
+					<li>
+						{averageRating}
+						<BookRating rating={averageRating} />
+					</li>
 				</ul>
 			</div>
 		</div>

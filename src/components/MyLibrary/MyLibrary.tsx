@@ -5,7 +5,6 @@ import { useStore } from 'react-hookstore';
 import { baseURL } from '../..';
 import { IBookShelves, IVolume } from '../../types/library';
 import { IUser } from '../../types/user';
-import BookGalary from '../BookGalary/BookGalary';
 import Login from '../Login/Login';
 import Menu from '../Menu/Menu';
 import Shelves from '../Shelves/Shelves';
@@ -77,7 +76,7 @@ const MyLibrary = (props: Props) => {
 						/>
 					)}>
 					<>
-						{shelves.length && <BookGalary />}
+						{/* {shelves.length && <BookGalary />} */}
 						{volumesData && volumesData.totalItems ? <Shelves /> : <h1>Library is empty</h1>}
 					</>
 				</Sidebar>
