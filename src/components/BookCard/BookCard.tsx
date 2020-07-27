@@ -3,7 +3,7 @@ import { IVolumeInfo } from '../../types/library';
 import BookRating from '../BookRating/BookRating';
 import style from './BookCard.module.css';
 
-const { root, content } = style;
+const { root, content, rating } = style;
 
 interface Props extends IVolumeInfo {
 	id: string;
@@ -24,11 +24,18 @@ const BookCard = ({ imageLinks, title, subtitle, description, publishedDate, pag
 				</div>
 				<p>{description}</p>
 				<ul>
-					<li>{publishedDate}</li>
-					<li>{pageCount}</li>
 					<li>
-						{averageRating}
-						<BookRating rating={averageRating} />
+						<b>Publish Date </b>
+						{publishedDate}
+					</li>
+					<li>
+						<b>Page# </b>
+						{pageCount}{' '}
+					</li>
+					<li>
+						<div className={rating}>
+							<BookRating rating={averageRating} />
+						</div>
 					</li>
 				</ul>
 			</div>

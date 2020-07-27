@@ -34,8 +34,7 @@
 	justify-content: space-around;
 }
 
-.content p {
-	padding: 0 1.5rem;
+.content {
 	font-family: serif;
 	flex: 1;
 }
@@ -47,6 +46,19 @@
 	font-family: fantasy;
 }
 
+.content p,
+.content ul {
+	padding: 0 1.5rem;
+}
+.content ul li {
+	margin: 0.5rem 0;
+	display: flex;
+	justify-content: space-between;
+}
+.rating {
+	margin: 1rem 0;
+	flex: 1;
+}
 @media screen and (min-width: 768px) {
 	.root {
 		flex: 0 0 42vw;
