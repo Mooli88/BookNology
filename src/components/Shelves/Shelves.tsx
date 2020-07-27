@@ -38,17 +38,9 @@ const Shelves = (props: Props) => {
 		setBooksState(books);
 	};
 
-	// const filterByGenre = () => {
-	// 	const books = [...booksState].filter(([authors, books]) => books.);
-	// };
-
 	useEffect(() => {
 		sortBooksByAuthor();
 	}, [selecredShelves, selectedCategory]);
-
-	useEffect(() => {
-		// filterByGenre();
-	}, [selectedCategory]);
 
 	const renderBooks = () => {
 		const _books = books.map(([authors, books]) => <Shelve {...{ authors, books }} key={authors} />);

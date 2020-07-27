@@ -36,7 +36,6 @@ const MyLibrary = (props: Props) => {
 
 	const getData = async () => {
 		await getShelves(GET(user.token));
-		// await getVolumes(get);
 	};
 
 	const onShelveSelect = async (id: string) => {
