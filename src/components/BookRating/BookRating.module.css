@@ -1,0 +1,26 @@
+.root {
+	position: relative;
+	text-align: center;
+}
+
+.stars {
+	margin: auto;
+	padding: 6px;
+}
+.star {
+	font-style: normal;
+	position: relative;
+	padding: 0 2px;
+}
+.star__half .star:last-child::after {
+	content: ' ';
+	position: absolute;
+	left: 50%;
+	right: 0;
+	background-color: #fff;
+	height: 100%;
+}
+
+.rating {
+	position: absolute;
+}
