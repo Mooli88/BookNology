@@ -11,7 +11,7 @@ export interface IVolumeInfo {
 	description: string;
 	subtitle: string;
 	pageCount: number;
-	categories: [];
+	categories: string[];
 	averageRating: number;
 	ratingsCount: number;
 	imageLinks: imageLinks;
@@ -32,6 +32,6 @@ export interface IBookShelves {
 	volumeCount: number;
 }
 
-export interface Book extends IVolumeInfo {
+export interface IBook extends IVolumeInfo {
 	id: string;
 }

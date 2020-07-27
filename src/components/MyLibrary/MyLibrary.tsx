@@ -5,6 +5,7 @@ import { useStore } from 'react-hookstore';
 import { baseURL } from '../..';
 import { IBookShelves, IVolume } from '../../types/library';
 import { IUser } from '../../types/user';
+import Filter from '../Filter/Filter';
 import Login from '../Login/Login';
 import Menu from '../Menu/Menu';
 import Shelves from '../Shelves/Shelves';
@@ -77,7 +78,7 @@ const MyLibrary = (props: Props) => {
 						/>
 					)}>
 					<>
-						{/* {shelves.length && <BookGalary />} */}
+						<Filter />
 						<Shelves />
 					</>
 				</Sidebar>

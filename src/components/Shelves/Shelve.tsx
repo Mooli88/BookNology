@@ -13,11 +13,6 @@ interface Props {
 }
 
 const Shelve = ({ authors, books }: Props) => {
-	// const [shelves] = useStore<IBookShelves[]>('shelves');
-	// const shelveInfo = useMemo(() => {
-	// 	return shelves.find(({ id }) => +shelveId === id);
-	// }, []);
-
 	return (
 		<div className={style.shelve}>
 			<h1>{authors}</h1>

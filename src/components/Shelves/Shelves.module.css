@@ -7,15 +7,19 @@
 
 .books {
 	display: flex;
-
+	margin: auto;
 	overflow-x: auto;
 	padding: 2em 0;
 	scroll-behavior: smooth;
 	border-radius: 4px;
+	width: calc(100vw - 3.75em);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
 	.root {
 		padding: 0 2em;
+	}
+	:global(.menu_open) .books {
+		width: calc(100vw - var(--sidebar-width) - 3.75em);
 	}
 }

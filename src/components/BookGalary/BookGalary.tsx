@@ -38,10 +38,11 @@ const BookGalary = (props: Props) => {
 	};
 
 	useEffect(() => {
-		const { id, volumeCount } = shelves.find(({ title }) => title === 'Books for you')!;
-		id && getRecommendedBooks(id);
-		// debugger;
-	}, []);
+		if (shelves) {
+			const bookForYou = shelves.find(({ title }) => title === 'Books for you');
+			bookForYou && bookForYou.id && getRecommendedBooks(bookForYou.id);
+		}
+	}, [shelves]);
 
 	const renderBooks = () => {
 		const books = volumesData ? volumesData.items : [];

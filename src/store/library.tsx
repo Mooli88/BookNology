@@ -28,4 +28,5 @@ const selecredShelvesReducer = (
 };
 
 createStore<IBookShelves[]>('shelves', []);
+createStore<string | null>('selectedCategory', 'all');
 createStore<IVolumes>('selectedShelves', {}, selecredShelvesReducer);

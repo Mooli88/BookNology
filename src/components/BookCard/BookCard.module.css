@@ -8,6 +8,10 @@
 	align-items: center;
 	flex-direction: column;
 	box-shadow: var(--shadow-colour-1) 0px 0.15rem 0.5rem, var(--shadow-colour-2) 0px 0.075rem 0.175rem;
+
+	animation: cardEntrance 400ms ease-out;
+	animation-fill-mode: backwards;
+	animation-delay: 1s;
 }
 
 .root img {
@@ -70,5 +74,18 @@
 @media screen and (min-width: 768px) {
 	.root {
 		flex: 0 0 42vw;
+	}
+}
+
+@keyframes cardEntrance {
+	from {
+		opacity: 0;
+		transform: translateY(60%);
+		filter: blur(3px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0);
 	}
 }

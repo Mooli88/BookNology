@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStore } from 'react-hookstore';
-import { Book, IVolume, IVolumes } from '../../types/library';
+import { IBook, IVolume, IVolumes } from '../../types/library';
 import BookGalary from '../BookGalary/BookGalary';
 import Shelve from './Shelve';
 import style from './Shelves.module.css';
@@ -10,9 +10,9 @@ interface Props {}
 const INIT_STATE = new Map();
 
 const Shelves = (props: Props) => {
-	const [selecredShelves, setSelecredShelves] = useStore<IVolumes>('selectedShelves');
-	const latestShelveId = useRef(4);
-	const [booksState, setBooksState] = useState<Map<string, Book[]>>(INIT_STATE);
+	const [selecredShelves] = useStore<IVolumes>('selectedShelves');
+	const [selectedCategory] = useStore<string>('selectedCategory');
+	const [booksState, setBooksState] = useState<Map<string, IBook[]>>(INIT_STATE);
 
 	const sortBooksByAuthor = () => {
 		const books = new Map();
@@ -20,7 +20,10 @@ const Shelves = (props: Props) => {
 		const setAuthorBooks = ({ id, volumeInfo }: IVolume) => {
 			const key = volumeInfo.authors.join(' | ');
 			const book = { id, ...volumeInfo };
-			const prevVal: Book[] = books.get(key);
+			const prevVal: IBook[] = books.get(key);
+
+			console.log('setAuthorBooks -> selectedCategory', selectedCategory);
+			if (selectedCategory !== 'all' && !book.categories.includes(selectedCategory)) return;
 
 			if (prevVal) {
 				const isNewVal = !prevVal.some((v) => id === v.id) ? [{ id, ...volumeInfo }] : [];
@@ -36,9 +39,17 @@ const Shelves = (props: Props) => {
 		setBooksState(books);
 	};
 
+	// const filterByGenre = () => {
+	// 	const books = [...booksState].filter(([authors, books]) => books.);
+	// };
+
 	useEffect(() => {
 		sortBooksByAuthor();
-	}, [selecredShelves]);
+	}, [selecredShelves, selectedCategory]);
+
+	useEffect(() => {
+		// filterByGenre();
+	}, [selectedCategory]);
 
 	const renderBooks = () => {
 		const _books = books.map(([authors, books]) => <Shelve {...{ authors, books }} key={authors} />);

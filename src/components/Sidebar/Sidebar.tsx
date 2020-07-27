@@ -38,7 +38,8 @@ const Sidebar = ({ renderMenu, children }: Props) => {
 				<div className={`${sidebar} ${menuState ? '' : sidebar__close}`}>
 					<div className={menu}>{renderMenu()}</div>
 				</div>
-				<div className={content}>{children}</div>
+
+				<div className={`${content} ${menuState ? 'menu_open' : ''}`}>{children}</div>
 			</main>
 		</div>
 	);
