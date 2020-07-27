@@ -10,11 +10,9 @@ import styles from './BookGalary.module.css';
 interface Props {}
 
 function getRandomInt(min: number, max: number, exclude?: number) {
-	console.log('getRandomInt -> exclude', exclude);
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	const random = Math.floor(Math.random() * (max - min)) + min;
-	console.log('getRandomInt -> random', random);
 	if (random === exclude) getRandomInt(min, max, exclude);
 	return random;
 }
@@ -34,7 +32,6 @@ const BookGalary = (props: Props) => {
 			...GET(user.token),
 			baseURL: `${baseURL}/bookshelves/${id}`,
 		});
-		console.log('getRecommendedBooks -> data', data);
 	};
 
 	useEffect(() => {

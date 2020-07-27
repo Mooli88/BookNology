@@ -9,8 +9,6 @@ const Filter = () => {
 	const [categoriesState, setCategoriesState] = useState<string[]>([]);
 	const [selecredShelves] = useStore<IVolumes>('selectedShelves');
 	const [cat, setSelectedCategory] = useStore<string>('selectedCategory');
-	console.log('Filter -> cat', cat);
-
 	const setCategories = () => {
 		const categories = new Set<string>();
 

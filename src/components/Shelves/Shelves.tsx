@@ -22,7 +22,6 @@ const Shelves = (props: Props) => {
 			const book = { id, ...volumeInfo };
 			const prevVal: IBook[] = books.get(key);
 
-			console.log('setAuthorBooks -> selectedCategory', selectedCategory);
 			if (selectedCategory !== 'all' && !book.categories.includes(selectedCategory)) return;
 
 			if (prevVal) {

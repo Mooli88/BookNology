@@ -20,11 +20,11 @@ const Login = (props: Props) => {
 			givinName: profile.getGivenName(),
 			token: googleUser.getAuthResponse().access_token,
 		});
-		console.log('onSignIn -> googleUser.getAuthResponse()', googleUser.getAuthResponse());
 	};
 
 	return (
 		<div>
+			<h2>👇 Please Login 👇</h2>
 			<GoogleLogin
 				clientId={`${CLIENT_ID}.apps.googleusercontent.com`}
 				buttonText='Login'

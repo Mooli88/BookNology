@@ -16,7 +16,6 @@ export const GET = (token: string): AxiosRequestConfig => ({
 	baseURL,
 	headers: {
 		Authorization: `Bearer ${token}`,
-		// Authorization: `Bearer ${user.token}`,
 	},
 });
 
@@ -28,7 +27,7 @@ const MyLibrary = (props: Props) => {
 	const [{ data: shelvesData, loading: shelvesLoading, error: shelvesError }, getShelves] = useAxios('/bookshelves', {
 		manual: true,
 	});
-	const [{ data: volumesData, loading: volumesLoading, error: voluemsErr }, getVolumes] = useAxios<{
+	const [, getVolumes] = useAxios<{
 		totalItems: number;
 		items: IVolume[];
 	}>(`/volumes`, {
@@ -59,30 +58,28 @@ const MyLibrary = (props: Props) => {
 
 	useEffect(() => {
 		if (user.token) {
-			console.log('useEffect - state', user.token);
 			getData();
 		}
 	}, [user.token]);
 
+	if (shelvesLoading) return <h1>Loading...</h1>;
+	if (!user.token) return <Login />;
+
 	return (
 		<div>
-			{!user.token ? (
-				<Login />
-			) : (
-				<Sidebar
-					renderMenu={() => (
-						<Menu
-							items={shelves.map(({ id, title: label }) => ({ id, label }))}
-							onSelect={onShelveSelect}
-							defaultItemId='4'
-						/>
-					)}>
-					<>
-						<Filter />
-						<Shelves />
-					</>
-				</Sidebar>
-			)}
+			<Sidebar
+				renderMenu={() => (
+					<Menu
+						items={shelves.map(({ id, title: label }) => ({ id, label }))}
+						onSelect={onShelveSelect}
+						defaultItemId='4'
+					/>
+				)}>
+				<>
+					<Filter />
+					<Shelves />
+				</>
+			</Sidebar>
 		</div>
 	);
 };
