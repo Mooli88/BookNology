@@ -1,24 +1,25 @@
-## TO DO:
+## TO DO
 
 ### Known bugs
 
-- Some elements of the gallery grid will behaive strangly when in hover state
+- Some elements of the gallery grid behave strangely when in hover state
 
 ### Things to improve on
 
-- **Error handling**
+- **Error handling**.
   At the moment error handling is very minimal. This needs to be improved by setting fallbacks and letting the user know what's happened.
 
-- Some components can be obstructed further by exporting some of the logic into helper/utils services
-- Add more generic style classes to minimize repetition
+- Some components can be further abstracted by exporting some of the logic into helper/utils services
+- Add more generic global style classes to minimize repetition
+- Better git commits (smaller commits and better messages)
 
 ### Missing Features
 
 - Logout
-- Rating books (I ran out of time)
+- Be able to rate books (I ran out of time)
 - Infinite scroll for books
 - Better loading state
-- Placeholder for books
+- Placeholder for books while loading
 
 ##
 
