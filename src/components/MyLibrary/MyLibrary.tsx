@@ -1,27 +1,18 @@
-import { AxiosRequestConfig } from 'axios';
 import useAxios from 'axios-hooks';
 import React, { useEffect } from 'react';
 import { useStore } from 'react-hookstore';
-import { baseURL } from '../..';
 import { IBookShelves, IVolume } from '../../types/library';
 import { IUser } from '../../types/user';
+import { axiosReq } from '../../utils';
 import Filter from '../Filter/Filter';
 import Login from '../Login/Login';
 import Menu from '../Menu/Menu';
 import Shelves from '../Shelves/Shelves';
 import Sidebar from '../Sidebar/Sidebar';
 
-export const GET = (token: string): AxiosRequestConfig => ({
-	method: 'get',
-	baseURL,
-	headers: {
-		Authorization: `Bearer ${token}`,
-	},
-});
-
 interface Props {}
 
-const MyLibrary = (props: Props) => {
+const MyLibrary = () => {
 	const [user] = useStore<IUser>('user');
 	const [shelves, setShelves] = useStore<IBookShelves[]>('shelves');
 	const [{ data: shelvesData, loading: shelvesLoading, error: shelvesError }, getShelves] = useAxios('/bookshelves', {
@@ -35,15 +26,11 @@ const MyLibrary = (props: Props) => {
 	});
 
 	const getData = async () => {
-		await getShelves(GET(user.token));
+		await getShelves(axiosReq(user.token));
 	};
 
 	const onShelveSelect = async (id: string) => {
-		const { data } = await getVolumes({
-			...GET(user.token),
-			baseURL: `${baseURL}/bookshelves/${id}`,
-		});
-
+		const { data } = await getVolumes(axiosReq(user.token, `/bookshelves/${id}`));
 		const volumes = data && data.totalItems ? data.items! : [];
 		return { id, volumes };
 	};

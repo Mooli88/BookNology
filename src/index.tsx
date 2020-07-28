@@ -7,8 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import './store/library';
 import './store/user';
 
-export const baseURL = 'https://www.googleapis.com/books/v1/mylibrary';
-
 ReactDOM.render(
 	<React.StrictMode>
 		<App />,

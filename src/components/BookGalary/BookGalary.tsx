@@ -1,10 +1,9 @@
 import useAxios from 'axios-hooks';
 import React, { useEffect } from 'react';
 import { useStore } from 'react-hookstore';
-import { baseURL } from '../..';
 import { IBookShelves, IVolume } from '../../types/library';
 import { IUser } from '../../types/user';
-import { GET } from '../MyLibrary/MyLibrary';
+import { axiosReq } from '../../utils';
 import styles from './BookGalary.module.css';
 
 interface Props {}
@@ -28,10 +27,7 @@ const BookGalary = (props: Props) => {
 	});
 
 	const getRecommendedBooks = async (id: number) => {
-		const { data } = await getVolumes({
-			...GET(user.token),
-			baseURL: `${baseURL}/bookshelves/${id}`,
-		});
+		const { data } = await getVolumes(axiosReq(user.token, `/bookshelves/${id}`));
 	};
 
 	useEffect(() => {

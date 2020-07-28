@@ -47,7 +47,7 @@ const ShelveMenu = ({ items, defaultItemId, onSelect }: Props) => {
 
 	useEffect(() => {
 		onItemSelect(defaultItemId);
-	}, []);
+	}, [defaultItemId]);
 
 	return (
 		<div className={styles.root}>

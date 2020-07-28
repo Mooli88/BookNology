@@ -8,11 +8,11 @@ interface Props {}
 const Filter = () => {
 	const [categoriesState, setCategoriesState] = useState<string[]>([]);
 	const [selecredShelves] = useStore<IVolumes>('selectedShelves');
-	const [cat, setSelectedCategory] = useStore<string>('selectedCategory');
+	const [, setSelectedCategory] = useStore<string>('selectedCategory');
 	const setCategories = () => {
 		const categories = new Set<string>();
 
-		const getCategories = ({ id, volumeInfo }: IVolume) => {
+		const getCategories = ({ volumeInfo }: IVolume) => {
 			volumeInfo.categories.forEach((category) => categories.add(category));
 		};
 
