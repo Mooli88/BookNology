@@ -1,3 +1,10 @@
+## INSTRUCTIONS
+
+- Add `.env` file in root folder. Then add `REACT_APP__CLIENT_ID` and assign to it your Google client ID (`00000000000-r0qkdqt7dc0edidmv1fcc53tjoi3rqm7`).
+- Make sure you got books in your Google library. Preferably you should have many books across different shelves.
+- Make sure you run the app on `localhost:3000`
+- Run `yarn start` to start the app in development mode
+
 ## TO DO
 
 ### Known bugs
