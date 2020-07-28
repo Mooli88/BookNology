@@ -21,7 +21,7 @@
 }
 
 .toolbar_item {
-	padding: 2em;
+	padding: 2em 1rem;
 }
 
 .menuIcon {
@@ -55,6 +55,11 @@ main {
 	box-shadow: 0.1rem 1rem 0.6rem var(--shadow-colour-1);
 }
 
+.userName {
+	font-weight: normal;
+	white-space: nowrap;
+}
+
 .sidebar.sidebar__close {
 	flex: 0;
 }
@@ -76,5 +81,10 @@ main {
 @media screen and (min-width: 500px) {
 	.sidebar {
 		flex: 0 0 var(--sidebar-width);
+	}
+}
+@media screen and (min-width: 1560px) {
+	.menuIcon {
+		display: none;
 	}
 }

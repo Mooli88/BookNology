@@ -15,6 +15,7 @@ const {
 	sidebar__close,
 	content,
 	menu,
+	userName,
 } = style;
 
 interface Props {
@@ -29,7 +30,14 @@ const Sidebar = ({ renderMenu, children }: Props) => {
 	return (
 		<div className={root}>
 			<header className={toolbar}>
-				<div className={toolbar_item}>{user.name ? `Welcome ${user.name}` : <Login />}</div>
+				<div className={toolbar_item}>
+					<Login />
+				</div>
+				<div className={toolbar_item}>
+					<h4 className={userName}>
+						Welcome <u>{user.name}</u> 👋
+					</h4>
+				</div>
 				<div className={toolbar_item} onClick={() => setMenuState(!menuState)}>
 					<span className={`${menuIcon} ${menuState ? menuIcon__close : menuIcon__open}`}></span>
 				</div>
