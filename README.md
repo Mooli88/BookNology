@@ -1,3 +1,27 @@
+## TO DO:
+
+### Known bugs
+
+- Some elements of the gallery grid will behaive strangly when in hover state
+
+### Things to improve on
+
+- **Error handling**
+  At the moment error handling is very minimal. This needs to be improved by setting fallbacks and letting the user know what's happened.
+
+- Some components can be obstructed further by exporting some of the logic into helper/utils services
+- Add more generic style classes to minimize repetition
+
+### Missing Features
+
+- Logout
+- Rating books (I ran out of time)
+- Infinite scroll for books
+- Better loading state
+- Placeholder for books
+
+##
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
