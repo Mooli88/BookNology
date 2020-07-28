@@ -1,6 +1,6 @@
 ## CHALLENGE 1 - Refactoring
 
-- Do you have any comments on the code as is?
+- **Do you have any comments on the code as is?**
 
   • Seems like there is mixup between 2 module conventions. ES6 `import` and CommonJs `module.expores`
   
@@ -10,7 +10,7 @@
   
   • It might be tricky to test `buildTheme` as it's not exported.
 
-- How would you test it?
+- **How would you test it?**
   • I write unit testing with Mocha and Chai.
   
   • If I cannot export some of the functions I'd use something like rewire (https://github.com/jhnns/rewire)
