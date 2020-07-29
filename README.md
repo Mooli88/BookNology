@@ -17,6 +17,7 @@
 
 - Some components can be further abstracted by exporting some of the logic into helper/utils services
 - Add more generic global style classes to minimize repetition
+- Optimise queries by selecting specific fields
 - Better git commits (smaller commits and better messages)
 
 ### Missing Features
