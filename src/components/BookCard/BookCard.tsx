@@ -5,18 +5,22 @@ import style from './BookCard.module.css';
 
 const { root, content, rating } = style;
 
-interface Props extends IVolumeInfo {
+interface Props extends Partial<IVolumeInfo> {
 	id: string;
 }
 
-const small = '300.jpg';
-const medium = '768.jpg';
-const large = '1280.jpg';
-
-const BookCard = ({ imageLinks, title, subtitle, description, publishedDate, pageCount, averageRating }: Props) => {
+const BookCard = ({
+	imageLinks,
+	title = '',
+	subtitle = '',
+	description = '',
+	publishedDate = '',
+	pageCount = 0,
+	averageRating = 0,
+}: Props) => {
 	return (
 		<div className={root}>
-			<img src={imageLinks.thumbnail} alt={`${title} - ${subtitle}`} />
+			<img src={imageLinks!.thumbnail} alt={`${title} - ${subtitle}`} />
 			<div className={content}>
 				<div>
 					<h3>{title}</h3>
@@ -30,7 +34,7 @@ const BookCard = ({ imageLinks, title, subtitle, description, publishedDate, pag
 					</li>
 					<li>
 						<b>Page# </b>
-						{pageCount}{' '}
+						{pageCount}
 					</li>
 					<li>
 						<div className={rating}>
