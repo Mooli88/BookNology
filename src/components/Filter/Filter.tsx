@@ -7,8 +7,9 @@ interface Props {}
 
 const Filter = () => {
 	const [categoriesState, setCategoriesState] = useState<string[]>([]);
-	const [selecredShelves] = useStore<IVolumes>('selectedShelves');
+	const [selectedShelves] = useStore<IVolumes>('selectedShelves');
 	const [, setSelectedCategory] = useStore<string>('selectedCategory');
+
 	const setCategories = () => {
 		const categories = new Set<string>();
 
@@ -16,7 +17,7 @@ const Filter = () => {
 			volumeInfo.categories.forEach((category) => categories.add(category));
 		};
 
-		Object.values(selecredShelves).forEach((books) => {
+		Object.values(selectedShelves).forEach((books) => {
 			books.forEach(getCategories);
 		});
 
@@ -25,18 +26,19 @@ const Filter = () => {
 
 	useEffect(() => {
 		setCategories();
-	}, [selecredShelves]);
+	}, [selectedShelves]);
 
 	return (
 		<div className={style.root}>
 			<select
+				data-testid='select_category'
 				defaultValue='all'
 				onChange={({ target }) => {
 					setSelectedCategory(target.value);
 				}}>
 				<option value='all'>All Genres</option>
 				{categoriesState.map((category) => (
-					<option key={category} value={category}>
+					<option key={category} value={category} data-testid={category}>
 						{category.toLowerCase()}
 					</option>
 				))}
