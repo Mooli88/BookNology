@@ -1,7 +1,7 @@
 import React, { ReactChild, useState } from 'react';
 import { useStore } from 'react-hookstore';
 import { IUser } from '../../types/user';
-import Login from '../Login/Login';
+import Logout from '../Logout/Logout';
 import style from './Sidebar.module.css';
 
 const {
@@ -31,7 +31,7 @@ const Sidebar = ({ renderMenu, children }: Props) => {
 		<div className={root}>
 			<header className={toolbar}>
 				<div className={toolbar_item}>
-					<Login />
+					<Logout />
 				</div>
 				<div className={toolbar_item}>
 					<h4 className={userName}>

@@ -48,7 +48,8 @@ const MyLibrary = () => {
 		}
 	}, [user.token]);
 
-	if (shelvesLoading) return <h1>Loading...</h1>;
+	//TODO add Loading component
+	// if (shelvesLoading) return <h1>Loading...</h1>;
 	if (!user.token) return <Login />;
 
 	return (
