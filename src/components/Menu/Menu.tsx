@@ -19,11 +19,15 @@ const ShelveMenu = ({ items, defaultItemId, onSelect }: Props) => {
 	const [selectedShelves, dispatchSelectedShelves] = useStore<IVolumes, any>('selectedShelves');
 
 	const onItemSelect = async (id: string) => {
-		const payload = await onSelect(id);
-		dispatchSelectedShelves({
-			type: SelecredShelvesAction.SELECT_SHELVE,
-			payload,
-		});
+		try {
+			const payload = await onSelect(id);
+			dispatchSelectedShelves({
+				type: SelecredShelvesAction.SELECT_SHELVE,
+				payload,
+			});
+		} catch (error) {
+			console.log('onItemSelect -> error', error);
+		}
 	};
 
 	const getEmoji = (id: string | number) => {
@@ -32,9 +36,9 @@ const ShelveMenu = ({ items, defaultItemId, onSelect }: Props) => {
 		if (shelve) {
 			if (shelve.length) return '📗 ';
 			return '🤷‍♂️ ';
-		} else {
-			return '';
 		}
+
+		return '';
 	};
 
 	const renderItems = () =>
