@@ -1,16 +1,16 @@
 import Color from 'color';
 import brandStore from './brand-store';
 
-const defaultColours = [
-	{ name: 'primary', value: '#333' },
-	{ name: 'secondary', value: '#222' },
-	{ name: 'tertiary', value: '#555' },
-];
+const convertToRgb = (c) => Color(c).rgb().string();
+
+const defaultColours = {
+	primary: convertToRgb('#333'),
+	secondary: convertToRgb('#222'),
+	tertiary: convertToRgb('#555'),
+};
 
 const defaultBodyFont = 'Lato';
 const allowedFonts = ['lato', 'arial', 'helvetica', 'courier'];
-
-const convertToRgb = (c) => Color(c).rgb().string();
 
 export function validateBodyFont(font) {
 	return allowedFonts.includes(font.toLowerCase());
@@ -21,7 +21,7 @@ export function getBodyFont(font) {
 	return bodyFont;
 }
 
-export function setColours(colours = defaultColours) {
+export function setColours(colours = []) {
 	const newColours = {};
 
 	colours.forEach(({ name, value }) => {
@@ -31,10 +31,10 @@ export function setColours(colours = defaultColours) {
 	return newColours;
 }
 
-export function buildTheme(colours = defaultColours, bodyFont = defaultBodyFont) {
+export function buildTheme(colours, bodyFont = defaultBodyFont) {
 	return {
-		colours: setColours(colours),
 		bodyFont: getBodyFont(bodyFont),
+		colours: colours ? setColours(colours) : { ...defaultColours },
 	};
 }
 
