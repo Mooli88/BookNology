@@ -18,7 +18,7 @@ const MockVolume = (categories: string[]): IVolume => {
 const renderHookStore = (storeName: string) => {
 	let storeHook: any = [];
 	const TestComponent = () => {
-		storeHook = useStore(storeName)[0];
+		[storeHook] = useStore(storeName);
 		return null;
 	};
 
@@ -56,7 +56,7 @@ test('Select option', () => {
 	expect(store()).toMatch(selectedOpts);
 });
 
-test.only('Select option with userEvent', () => {
+test('Select option with userEvent', () => {
 	const store = renderHookStore('selectedCategory');
 	const { getByDisplayValue, getByTestId } = render(<Filter />);
 	const selectedOptVal = /^Fiction$/i;
