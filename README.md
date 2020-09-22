@@ -1,8 +1,17 @@
 ## INSTRUCTIONS
 
-- Add `.env` file to root folder. Then add `REACT_APP__CLIENT_ID` and assign to it your Google client ID (`00000000000-r0qkdqt7dc0edidmv1fcc53tjoi3rqm7`).
-- Make sure you got books in your Google library. Preferably you should have many books across different shelves.
+In order to run this app you will need OAuth 2.0 Client ID.
+You can set one up following these steps:
+
+- [Create a new project](https://console.cloud.google.com/projectcreate)
+- Enable Books API from [here](https://console.cloud.google.com/apis/library)
+- [Set up Oauth consent screen](https://console.cloud.google.com/apis/credentials/consent). The only fileds you should fill up are 'Application name', 'Support email' and 'Scopes for Google APIs'.
+  For 'Scopes for Google APIs' make sure to add Books API to the scoop.
+- Create [OAuth client ID](console.developers.google.com/apis/credentials/oauthclient) for web applications and set the the URIs to http://localhost:3000
+- Create `.env` file at root folder and add `REACT_APP__CLIENT_ID` var with your OAuth client ID (just copy the bit which comes before '.apps.googleusercontent.com'. ie `00000000000-r0qkdqt7dc0edidmv1fcc53tjoi3rqm7`).
+- Make sure you got books in your [Google library](https://books.google.com/books) with the user you are about to login with. Preferably you should have many books across different shelves.
 - Run `yarn start` to start the app in development mode
+- Navigate to http://localhost:3000 (currently not working in Incognito)
 
 ## TO DO
 
