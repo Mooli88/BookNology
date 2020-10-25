@@ -10,7 +10,7 @@
 .star {
 	font-style: normal;
 	position: relative;
-	padding: 0 2px;
+	letter-spacing: 4px;
 }
 .star__half .star:last-child::after {
 	content: ' ';
