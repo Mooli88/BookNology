@@ -31,10 +31,8 @@ You can set one up following these steps:
 
 ### Missing Features
 
-- Logout
-- Be able to rate books (I ran out of time)
+- Be able to rate book
 - Infinite scroll for books
-- Better loading state
 - Placeholder for books while loading
 
 ##
