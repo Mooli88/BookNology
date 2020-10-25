@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
+import { useStore } from 'react-hookstore';
+import Login from './components/Login/Login';
 import MyLibrary from './components/MyLibrary/MyLibrary';
+import { IUser } from './types/user';
 
 function App() {
-	return (
-		<div className='App'>
-			<MyLibrary></MyLibrary>
-		</div>
-	);
+  const [user] = useStore<IUser>('user');
+
+  return user.token ? <MyLibrary></MyLibrary> : <Login />;
 }
 
 export default App;
