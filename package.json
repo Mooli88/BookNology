@@ -7,6 +7,7 @@
 		"axios": "^0.19.2",
 		"axios-hooks": "^2.1.0",
 		"normalize.css": "^8.0.1",
+		"qss": "^2.0.3",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-google-login": "^5.1.21",
